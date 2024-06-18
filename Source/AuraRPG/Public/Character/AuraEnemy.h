@@ -15,6 +15,9 @@ class AURARPG_API AAuraEnemy : public AAuraCharacter , public IEnemyInterface
 {
 	GENERATED_BODY()
 
+protected:
+	virtual void BeginPlay() override;
+
 public:
 	AAuraEnemy();
 	virtual void HighlightActor() override;

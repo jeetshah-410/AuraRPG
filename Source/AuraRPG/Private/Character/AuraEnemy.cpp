@@ -7,6 +7,13 @@
 #include "AbilitySystem/AuraAttributeSet.h"
 #include "AuraRPG/AuraRPG.h"
 
+void AAuraEnemy::BeginPlay()
+{
+	Super::BeginPlay();
+	check(AbilitySystemComponent);
+	AbilitySystemComponent->InitAbilityActorInfo(this, this);
+}
+
 AAuraEnemy::AAuraEnemy()
 {
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
