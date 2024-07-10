@@ -16,6 +16,8 @@
 USTRUCT()
 struct FEffectProperties
 {
+	GENERATED_BODY()
+
 	FEffectProperties() {}
 
 	FGameplayEffectContextHandle EffectContextHandle;
