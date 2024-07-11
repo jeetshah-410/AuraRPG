@@ -18,6 +18,8 @@ class AURARPG_API AAuraEnemy : public AAuraCharacter , public IEnemyInterface
 protected:
 	virtual void BeginPlay() override;
 
+	virtual void InitAbilityActorInfo() override;
+
 public:
 	AAuraEnemy();
 	virtual void HighlightActor() override;
