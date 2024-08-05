@@ -11,6 +11,7 @@
 class UAbilitySystemComponent;
 class UAttributeSet;
 class UGameplayEffect;
+class UGameplayAbility;
 
 UCLASS(Abstract)
 class AURARPG_API AAuraCharacterBase : public ACharacter, public IAbilitySystemInterface, public ICombatInterface
@@ -27,6 +28,11 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category="Combat")
 	TObjectPtr<USkeletalMeshComponent> Weapon;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	FName WeaponSocketName;
+
+	virtual FVector GetCombatSocketLocation() override;
 
 	UPROPERTY()
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
@@ -48,4 +54,10 @@ protected:
 	void InitializeDefaultAttributes() const;
 
 	virtual void InitAbilityActorInfo();
+
+	void AddCharacterAbilities();
+
+private:
+	UPROPERTY(EditAnywhere)
+	TArray<TSubclassOf<UGameplayAbility>> StartupAbilities;
 };
